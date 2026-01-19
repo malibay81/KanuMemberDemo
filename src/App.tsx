@@ -8,7 +8,7 @@ import type { Member, MemberFormData } from './models/types';
 import { useMembers } from './hooks/useMembers';
 import { useFamilies } from './hooks/useFamilies';
 import { initializeExampleData, resetToExampleData } from './services/initService';
-import { Button, Card, CardHeader, Modal } from './components/ui';
+import { Button, Card, CardHeader, Modal, ThemeToggle } from './components/ui';
 import { MemberList } from './components/members/MemberList';
 import { MemberForm } from './components/members/MemberForm';
 import { MemberFilter } from './components/members/MemberFilter';
@@ -157,7 +157,7 @@ function App() {
   ];
   
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors">
       {/* Header */}
       <header className="bg-blue-600 text-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -172,6 +172,11 @@ function App() {
                 <h1 className="text-xl sm:text-2xl font-bold">Kanu-Verein Mitgliederverwaltung</h1>
                 <p className="text-blue-100 text-sm">Demo-Anwendung</p>
               </div>
+            </div>
+            
+            {/* Theme Toggle */}
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
             </div>
             
             {/* Stats */}
@@ -194,7 +199,7 @@ function App() {
       </header>
       
       {/* Navigation Tabs */}
-      <nav className="bg-white border-b border-gray-200 sticky top-0 z-40">
+      <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex overflow-x-auto">
             {tabs.map((tab) => (
@@ -205,8 +210,8 @@ function App() {
                   flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 whitespace-nowrap
                   transition-colors
                   ${activeTab === tab.id
-                    ? 'border-blue-600 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    ? 'border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400'
+                    : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
                   }
                 `}
               >
@@ -330,9 +335,9 @@ function App() {
       </main>
       
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-auto">
+      <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <p className="text-center text-sm text-gray-500">
+          <p className="text-center text-sm text-gray-500 dark:text-gray-400">
             Kanu-Verein Mitgliederverwaltung Demo • Alle Daten werden lokal im Browser gespeichert
           </p>
         </div>

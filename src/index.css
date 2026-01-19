@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Enable dark mode with class selector */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Custom styles for the Kanu Member App */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -11,4 +14,10 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+/* Dark mode background colors */
+.dark body {
+  background-color: #111827;
+  color: #f9fafb;
 }
