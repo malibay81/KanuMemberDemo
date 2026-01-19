@@ -2,6 +2,10 @@
 
 Eine moderne, responsive Demo-Web-App zur Mitgliederverwaltung eines Kanuvereins, entwickelt mit **React + TypeScript**.
 
+## 🌐 Live Demo
+
+**[👉 App öffnen](https://malibay81.github.io/KanuMemberDemo/)**
+
 ## 🚀 Features
 
 ### Mitgliederverwaltung
