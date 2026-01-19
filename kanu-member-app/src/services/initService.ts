@@ -4,7 +4,6 @@
  * This data is loaded on first run to demonstrate the app's functionality.
  */
 
-import { v4 as uuidv4 } from 'uuid';
 import type { Member, Family } from '../models/types';
 import { saveAllMembers, saveAllFamilies, isInitialized, setInitialized } from './storageService';
 import { logMemberCreated, logFamilyCreated } from './auditService';
@@ -68,8 +67,9 @@ function createExampleFamilies(): Family[] {
 
 /**
  * Create example members
+ * @param _families - Available families (used for reference, IDs are hardcoded)
  */
-function createExampleMembers(families: Family[]): Member[] {
+function createExampleMembers(_families: Family[]): Member[] {
   const now = new Date().toISOString();
   
   return [

@@ -144,6 +144,55 @@ id;firstName;lastName;birthDate;street;postalCode;city;iban;bic;entryDate;exitDa
 - **Modale Dialoge**: Für Bearbeitung und Details
 - **Filterbare Listen**: Schnelle Suche und Filterung
 
+## 🌐 Deployment auf GitHub Pages
+
+### Automatisches Deployment (empfohlen)
+
+1. **Repository auf GitHub erstellen**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/DEIN-USERNAME/kanu-member-app.git
+   git push -u origin main
+   ```
+
+2. **GitHub Pages aktivieren**
+   - Gehe zu deinem Repository auf GitHub
+   - Klicke auf **Settings** → **Pages**
+   - Unter **Source** wähle **GitHub Actions**
+
+3. **Base-Path anpassen** (falls nötig)
+   
+   In [`vite.config.ts`](vite.config.ts) den `base`-Pfad an deinen Repository-Namen anpassen:
+   ```typescript
+   base: '/dein-repository-name/',
+   ```
+
+4. **Push und Deployment**
+   
+   Bei jedem Push auf den `main` Branch wird die App automatisch deployed.
+   Die App ist dann erreichbar unter:
+   ```
+   https://DEIN-USERNAME.github.io/kanu-member-app/
+   ```
+
+### Manuelles Deployment
+
+```bash
+# Build erstellen
+npm run build
+
+# Den Inhalt des 'dist' Ordners auf GitHub Pages hochladen
+```
+
+### Wichtige Hinweise
+
+- Der `base`-Pfad in `vite.config.ts` muss mit dem Repository-Namen übereinstimmen
+- GitHub Actions Workflow ist bereits konfiguriert (`.github/workflows/deploy.yml`)
+- LocalStorage funktioniert auch auf GitHub Pages
+
 ## 📄 Lizenz
 
 Demo-Anwendung für Demonstrationszwecke.

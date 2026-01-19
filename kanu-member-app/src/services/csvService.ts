@@ -5,7 +5,7 @@
 
 import { v4 as uuidv4 } from 'uuid';
 import type { Member, MemberCSVRow, CSVImportResult } from '../models/types';
-import { getAllMembers, getMemberById, saveMember, updateMember, saveAllMembers } from './storageService';
+import { getAllMembers, saveAllMembers } from './storageService';
 import { logDataImported, logDataExported } from './auditService';
 
 // CSV column headers
@@ -121,7 +121,6 @@ export function importMembersFromCSV(csvContent: string): CSVImportResult {
     
     // Process data rows
     const existingMembers = getAllMembers();
-    const existingMemberMap = new Map(existingMembers.map(m => [m.id, m]));
     const processedMembers: Member[] = [...existingMembers];
     
     for (let i = 1; i < lines.length; i++) {
